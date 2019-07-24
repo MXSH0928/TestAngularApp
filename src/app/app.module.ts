@@ -10,11 +10,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -26,8 +30,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatCheckboxModule,
     MatCardModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
-       { path: 'home', component: HomeComponent }
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'contact', component: ContactComponent }
     ])
   ],
   providers: [],
