@@ -10,10 +10,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 @NgModule({
@@ -22,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     ContactComponent,
     AboutComponent,
-    UserComponent
+    UserComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +38,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatCheckboxModule,
     MatCardModule,
+    MatTableModule,
+    MatProgressBarModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
+      { path: 'users', component: UserComponent },
+      { path: 'user', component: UserDetailsComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent }
     ])

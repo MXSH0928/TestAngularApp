@@ -19,7 +19,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     console.log('>>> ngOnDestroy');
-    this.subscription.unsubscribe();
+
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   clickMe() {

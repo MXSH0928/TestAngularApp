@@ -1,3 +1,15 @@
+interface UserApiResponse {
+    results: User[];
+    info: Info;
+}
+
+interface Info {
+    seed: string;
+    results: number;
+    page: number;
+    version: string;
+}
+
 interface User {
     name: Name;
     gender: string;
@@ -11,7 +23,6 @@ interface User {
       first: string;
       last: string;
   }
-
   interface Location {
       street: string;
       city: string;
