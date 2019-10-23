@@ -17,7 +17,19 @@ import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { LoginComponent } from './login/login.component';
+import { 
+  OKTA_CONFIG,
+  OktaAuthGuard,
+  OktaAuthModule,
+  OktaCallbackComponent} from '@okta/okta-angular';
 
+const config = {
+  issuer: 'https://dev-463807.okta.com/oauth2/default',
+  redirectUri: 'http://localhost:4200/implicit/callback',
+  clientId: '0oa1n5h1zle38uNYM357',
+  pkce: true
+};
 
 @NgModule({
   declarations: [
@@ -26,7 +38,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     ContactComponent,
     AboutComponent,
     UserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +59,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
       { path: 'users', component: UserComponent },
       { path: 'user', component: UserDetailsComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'contact', component: ContactComponent }
+      { path: 'contact', component: ContactComponent },
+      { path: 'login', component: LoginComponent }
     ])
   ],
   providers: [],
