@@ -44,6 +44,7 @@ export class UserComponent implements OnInit, OnChanges, OnDestroy {
     this.dataSource.data = this.filteredUsers;
   }
 
+  // LifeCycle Hook
   ngOnInit() {
     this.showMatProgress = true;
     this.subscription = this.userService.getUsers().subscribe((users: User[]) => {
@@ -58,10 +59,12 @@ export class UserComponent implements OnInit, OnChanges, OnDestroy {
     });
   }
 
+  // LifeCycle Hook
   ngOnChanges() {
     console.log('ngOnChanges has been invoked.');
   }
 
+  // LifeCycle Hook
   ngOnDestroy(): void {
     console.log('ngOnDestroy has been invoked.');
     if (this.subscription) {
