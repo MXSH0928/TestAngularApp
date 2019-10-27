@@ -27,6 +27,7 @@ import {
   OktaAuthModule,
   OktaCallbackComponent} from '@okta/okta-angular';
 import { NgModule } from '@angular/core';
+import { ContactFormComponent } from './shared/contact-form/contact-form.component';
 
 const config = {
   issuer: 'https://dev-463807.okta.com/oauth2/default',
@@ -43,7 +44,8 @@ const config = {
     AboutComponent,
     UserComponent,
     UserDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
