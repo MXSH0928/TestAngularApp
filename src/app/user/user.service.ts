@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
+  // Root -vs- Component injector
   providedIn: 'root'
 })
 export class UserService {
