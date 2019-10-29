@@ -35,7 +35,7 @@ export class ContactFormComponent implements OnInit {
 
     onSubmit() {
         // TODO: Use EventEmitter to keep the form encapsulated and to provide the form value outside the component.
-        console.log(this.contactForm.value);
+        console.log(`Contact form values: ${JSON.stringify(this.contactForm.value)}`);
     }
 
     onClick() {
