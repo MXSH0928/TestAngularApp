@@ -31,7 +31,7 @@ export class ContactFormComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      firstName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(25)]],
       lastName: [''],
       emailAddress: ['', [Validators.required, Validators.email]],
       phoneNumber: [''],
@@ -52,5 +52,10 @@ export class ContactFormComponent implements OnInit {
 
   onCancel = () => {
     // this.location.back();
+    this.contactForm.reset();
+  }
+
+  public hasError = (controlName: string, errorName: string) => {
+    return this.contactForm.controls[controlName].hasError(errorName);
   }
 }
