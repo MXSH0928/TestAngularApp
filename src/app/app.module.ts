@@ -21,6 +21,7 @@ import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   OKTA_CONFIG,
   OktaAuthGuard,
@@ -28,6 +29,8 @@ import {
   OktaCallbackComponent} from '@okta/okta-angular';
 import { NgModule } from '@angular/core';
 import { ContactFormComponent } from './shared/contact-form/contact-form.component';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const config = {
   issuer: 'https://dev-463807.okta.com/oauth2/default',
@@ -63,6 +66,8 @@ const config = {
     MatProgressBarModule,
     MatGridListModule,
     MatInputModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
@@ -73,7 +78,7 @@ const config = {
       { path: 'login', component: LoginComponent }
     ])
   ],
-  providers: [],
+  providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
