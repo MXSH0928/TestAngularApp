@@ -9,7 +9,11 @@ import { map } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
+  private title = 'Home Page';
+
   private subscription: Subscription;
+
+  private cardWidth = '80%';
 
   constructor() { }
 

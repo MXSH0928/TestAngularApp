@@ -15,6 +15,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule} from '@angular/material/dialog';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
@@ -31,6 +32,7 @@ import { NgModule } from '@angular/core';
 import { ContactFormComponent } from './shared/contact-form/contact-form.component';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 const config = {
   issuer: 'https://dev-463807.okta.com/oauth2/default',
@@ -49,6 +51,7 @@ const config = {
     UserDetailsComponent,
     LoginComponent,
     ContactFormComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ const config = {
     MatProgressBarModule,
     MatGridListModule,
     MatInputModule,
+    MatDialogModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule.forRoot([
@@ -78,6 +82,7 @@ const config = {
       { path: 'login', component: LoginComponent }
     ])
   ],
+  entryComponents: [DialogComponent],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
   bootstrap: [AppComponent]
 })

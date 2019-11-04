@@ -9,6 +9,8 @@ import {
   NgForm
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-contact-form',
@@ -20,12 +22,14 @@ export class ContactFormComponent implements OnInit {
   // Whoever uses this nested component can set the tile
   @Input() parentTitle: string;
 
+  @Input() contactCardWidth = '500px';
+
   // Output: Child -> Parent
   // This event will notify the parent component
   // We could also use TypedEvent<>
   @Output() notifyEvent = new EventEmitter();
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private dialog: MatDialog) {}
 
   contactForm: FormGroup;
 
@@ -44,6 +48,22 @@ export class ContactFormComponent implements OnInit {
     console.log(
       `Contact form values: ${JSON.stringify(this.contactForm.value)}`
     );
+
+    this.notifyEvent.emit('Contact form has been submitted.');
+
+    const dialogRef = this.dialog.open(DialogComponent, {
+      height: '200px',
+      width: '400px',
+      /* disableClose: true, */
+      data: {
+        title: 'My title',
+        content: 'Add important message here.'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`The dialog was closed. ${result}`);
+    });
   }
 
   onClick() {
