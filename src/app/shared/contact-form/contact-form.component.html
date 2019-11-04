@@ -4,13 +4,13 @@
 </div>
 
 <section fxLayout="row wrap" fxLayoutAlign="center center">
-  <mat-card fxFlex="500px" fxFlex.xs="100%">
+  <mat-card [fxFlex]='contactCardWidth' fxFlex.xs="100%">
     <mat-card-title>Comment Section</mat-card-title>
     <form
       [formGroup]="contactForm"
       (ngSubmit)="onSubmit(contactForm)"
-      fxLayout="column wrap"
-      fxLayoutAlign="center center"
+      fxLayout="column"
+      fxLayoutAlign="space-evenly center"
       fxLayoutGap="10px"
     >
       <mat-card-content>
@@ -68,6 +68,7 @@
             formControlName="message"
             placeholder="Leave a comment"
           ></textarea>
+          <mat-hint align="end">Required field</mat-hint>
         </mat-form-field>
       </mat-card-content>
       <mat-card-actions fxLayout="row" fxLayoutGap="20px">

@@ -1,4 +1,20 @@
-<p>
-  home works!
-</p>
-<button mat-raised-button color="accent" (click)="clickMe()">Click Me</button>
+<div>
+  <h2>{{ title }}</h2>
+</div>
+
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card [fxFlex]='cardWidth' fxFlex.xs="100%">
+    <mat-card-title>Welcome</mat-card-title>
+    <mat-card-content>
+      <p>
+        Very important content
+      </p>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center">
+      <button mat-raised-button color="accent" (click)="clickMe()">
+        Click Me
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section>
+<app-contact-form [contactCardWidth]='cardWidth'></app-contact-form>
