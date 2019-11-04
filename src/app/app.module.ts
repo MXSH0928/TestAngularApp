@@ -16,6 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
@@ -70,6 +71,7 @@ const config = {
     MatGridListModule,
     MatInputModule,
     MatDialogModule,
+    MatSnackBarModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     RouterModule.forRoot([

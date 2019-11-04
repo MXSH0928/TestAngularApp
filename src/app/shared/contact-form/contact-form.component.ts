@@ -11,6 +11,7 @@ import {
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-contact-form',
@@ -29,7 +30,10 @@ export class ContactFormComponent implements OnInit {
   // We could also use TypedEvent<>
   @Output() notifyEvent = new EventEmitter();
 
-  constructor(private fb: FormBuilder, private dialog: MatDialog) {}
+  constructor(
+    private fb: FormBuilder,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar) {}
 
   contactForm: FormGroup;
 
@@ -73,6 +77,7 @@ export class ContactFormComponent implements OnInit {
   onCancel = () => {
     // this.location.back();
     this.contactForm.reset();
+    this.snackBar.open('The contact form has been cleared', 'OK', { duration: 10000});
   }
 
   public hasError = (controlName: string, errorName: string) => {
