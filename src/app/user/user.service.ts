@@ -9,7 +9,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class UserService {
 
-  endpoint = 'https://randomuser.me/api/?results=10';
+  endpoint = 'https://randomuser.me/api/?seed=MyTestWebApi&results=10';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
@@ -19,5 +19,9 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<UserApiResponse>(this.endpoint).pipe(map(res => res.results));
+  }
+
+  getUser(id: string): Observable<User> {
+    return this.http.get<UserApiResponse>(`${this.endpoint}&id=${id}`).pipe(map(res => res.results[0]));
   }
 }

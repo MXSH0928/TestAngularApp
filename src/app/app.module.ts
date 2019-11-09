@@ -78,11 +78,13 @@ const config = {
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'users', component: UserComponent },
-      { path: 'user', component: UserDetailsComponent },
+      { path: 'user/:id', component: UserDetailsComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'login', component: LoginComponent }
-    ])
+    ], 
+    { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   entryComponents: [DialogComponent],
   providers: [{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}],
