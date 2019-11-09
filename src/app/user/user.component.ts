@@ -66,15 +66,16 @@ export class UserComponent implements OnInit, OnChanges, OnDestroy {
 
   // LifeCycle Hook
   ngOnDestroy(): void {
-    console.log('ngOnDestroy has been invoked.');
+    // ToDo: Create a nameOf shared function
+    console.log('ngOnDestroy has been invoked in UserComponent.');
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
   }
 
   public redirectToUpdate = (id: string) => {
-    console.log(`You have clicked ${JSON.stringify(id)}`);
-    this.router.navigate(['/user'], {queryParams: { id: id }});
+    console.log(`You have clicked ${id}`);
+    this.router.navigate(['/user', id]);
   }
 
   public toggleProfileImage(): void {

@@ -43,7 +43,7 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef style="text-align: right">Edit</th>
       <td mat-cell *matCellDef="let element" style="text-align: right">
-        <button mat-icon-button color="accent" (click)="redirectToUpdate(element.email)">
+        <button mat-icon-button color="accent" (click)="redirectToUpdate(element.id.value)">
           <mat-icon class="mat-18">edit</mat-icon>
       </button>
       </td>
