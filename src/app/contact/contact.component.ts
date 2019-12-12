@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  private title = 'Contact Page';
+  public title = 'Contact Page';
 
   constructor() { }
 
