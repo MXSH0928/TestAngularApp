@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { UserService } from './user.service';
 import { DataSource, StickyDirection } from '@angular/cdk/table';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { filter } from 'minimatch';
+import { UserService } from '../services/user-service/user.service';
 
 @Component({
   selector: 'app-user',

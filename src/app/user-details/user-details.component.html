@@ -1,2 +1,35 @@
-<p>user-details works!</p>
-{{user?.email}}
+<mat-progress-bar
+  *ngIf="showMatProgress"
+  mode="indeterminate"
+></mat-progress-bar>
+<br />
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+  <mat-card [fxFlex]="cardWidth" fxFlex.xs="100%">
+    <mat-card-header>
+        <img mat-card-avatar [src]='user?.picture.medium' class="avatar"/>           
+        <mat-card-title>{{ user?.name.first }} {{ user?.name.last }} </mat-card-title>
+        <!-- <mat-card-subtitle>Test User</mat-card-subtitle> -->
+    </mat-card-header>
+    <img mat-card-image [src]='user?.picture.large' alt={{user?.email}}>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>Item 1</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 2</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Item 3</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <span mat-subheader>Email:</span>{{ user?.email }}
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <span mat-subheader>Address:</span>
+          {{ user?.location.street }}
+          {{ user?.location.city }}, {{ user?.location.state }}
+          {{ user?.location.postCode }}
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</section>

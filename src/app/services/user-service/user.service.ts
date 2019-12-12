@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/internal/operators/map';
+import { filter, map } from 'rxjs/operators';
 
 @Injectable({
   // Root -vs- Component injector
@@ -9,7 +9,7 @@ import { map } from 'rxjs/internal/operators/map';
 })
 export class UserService {
 
-  endpoint = 'https://randomuser.me/api/?seed=MyTestWebApi&results=10';
+  endpoint = 'https://randomuser.me/api/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
@@ -18,10 +18,11 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<UserApiResponse>(this.endpoint).pipe(map(res => res.results));
+    return this.http.get<UserApiResponse>(`${this.endpoint}?seed=MyTestWebApi&results=10`).pipe(map(res => res.results));
   }
 
   getUser(id: string): Observable<User> {
-    return this.http.get<UserApiResponse>(`${this.endpoint}&id=${id}`).pipe(map(res => res.results[0]));
+    return this.http.get<UserApiResponse>(`${this.endpoint}?seed=MyTestWebApi&results=10`)
+    .pipe(map(res => res.results.filter(u => u.id.value === id)))[0];
   }
 }

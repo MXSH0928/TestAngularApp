@@ -16,7 +16,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDialogModule} from '@angular/material/dialog';
+import {MatDividerModule} from '@angular/material/divider';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatListModule} from '@angular/material/list';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { UserComponent } from './user/user.component';
@@ -75,6 +77,8 @@ const config = {
     MatInputModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatDividerModule,
+    MatListModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     GoogleMapsModule,
@@ -86,8 +90,8 @@ const config = {
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'login', component: LoginComponent }
-    ], 
-    { enableTracing: true } // <-- debugging purposes only
+    ],
+    { enableTracing: false } // <-- debugging purposes only
     )
   ],
   entryComponents: [DialogComponent],
