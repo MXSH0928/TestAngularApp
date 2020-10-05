@@ -6,8 +6,8 @@ import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
   templateUrl: 'google-maps.component.html'
 })
 export class GoogleMapsComponent implements OnInit {
-  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
-  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
+  @ViewChild(GoogleMap) map: GoogleMap;
+  @ViewChild(MapInfoWindow) info: MapInfoWindow;
 
   zoom = 12;
   center: google.maps.LatLngLiteral;
