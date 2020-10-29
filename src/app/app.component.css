@@ -5,3 +5,16 @@
   .example-spacer {
     flex: 1 1 auto;
   }
+ 
+  .sticky {    
+     position: sticky; 
+     position: -webkit-sticky;    
+    /* position: absolute; */     
+    top: 0;
+    z-index: 1000;
+  }
+
+  .topDesign {
+    background-color: gray;
+    color: black;
+  }
